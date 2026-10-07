@@ -1,57 +1,30 @@
-# My GPT — Built from Scratch
+# NeetCode GPT
 
-> Assembled from the NeetCode ML course on [NeetCode.io](https://neetcode.io)
-> Built by **Ayush Rawat** on October 7, 2026
+This repository contains an educational GPT implementation with a unified
+training, checkpointing, and text-generation pipeline.
 
-Every file in this project is code I wrote and submitted while completing the NeetCode ML course.
-The problems progressively build from gradient descent fundamentals all the way to a working GPT.
+## Project structure
 
-## Project Structure
-
-```
-model/          Attention, Transformer, GPT architecture
-  attention.py             Self-attention head
-  multi_head_attention.py  Multi-headed attention
-  transformer.py           Transformer block
-  gpt.py                   GPT model
-  normalization.py         Layer normalization
-  batch_normalization.py   Batch normalization
-  rms_normalization.py     RMS normalization
-  embeddings.py            Word embeddings
-  positional_encoding.py   Positional encoding
-  kv_cache.py              KV-Cache for fast inference
-  grouped_query_attention.py  Grouped query attention
-
-data/           Data pipeline
-  tokenizer.py                BPE tokenizer
-  vocab.py                    Character-level vocabulary
-  loader.py                   Batched training data loader
-  dataset.py                  GPT dataset preparation
-  nlp_preprocessing.py        NLP preprocessing
-  tokenizer_utils.py          Tokenization edge cases
-
-train.py        GPT training loop
-generate.py     Text generation
-
-foundations/    Neural network primitives built from scratch
-  neuron.py, backprop.py, mlp.py, activations.py, loss.py,
-  training_loop.py, dead_relu_detector.py, ...
+```text
+model/          Attention, transformer, and GPT architecture
+data/           Vocabulary, tokenization, preprocessing, and batching
+train.py        Reusable AdamW training helper
+generate.py     Reusable autoregressive generation helper
+checkpoint.py   Checkpoint save/load helpers
+run_gpt.py      End-to-end training and generation entry point
 ```
 
-## Quick Start
+## Quick start
 
 ```bash
 pip install -r requirements.txt
-python train.py
-python generate.py
+python run_gpt.py
 ```
 
-## Course
+Put training text in `input.txt` to replace the built-in fallback sample.
+Use `python run_gpt.py --help` to view configuration options. The script
+trains the model, writes `gpt_checkpoint.pt`, reloads it, and generates 100
+tokens.
 
-This project was built by completing the [NeetCode ML Course](https://neetcode.io/practice?tab=coreSkills&topic=Machine+Learning):
-- Math Foundations (gradient descent, activations, loss functions)
-- Neural Networks from scratch (neuron, backprop, MLP)
-- PyTorch fundamentals
-- NLP pipeline (embeddings, tokenization, attention)
-- Transformer architecture
-- GPT model + text generation
+See the [documentation](docs/README.md) for setup, architecture, examples,
+and development notes.
