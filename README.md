@@ -45,15 +45,11 @@ Run the interactive chat program after preparing an instruction-tuned checkpoint
 ```text
 loaded checkpoints/gpt_instruct.pt. type 'exit' to quit.
 
-User: Explain what a neural network is.
+User: What is Python?
 Assistant: ...
 ```
 
-To add a screenshot or recording to the repository, place it in `screenshots/` and update this section, for example:
-
-```markdown
-![Chotagpt interactive chat](screenshots/chat-demo.png)
-```
+![Chotagpt interactive chat](public/chat.png)
 
 ## Requirements
 
@@ -82,7 +78,7 @@ The listed dependencies are:
 ### 1. Clone and enter the repository
 
 ```bash
-git clone [REPOSITORY_URL]
+git clone https://github.com/Ayu-Rawat/Chotagpt
 cd Chotagpt
 ```
 
@@ -92,7 +88,7 @@ Windows PowerShell:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+source .venv\Scripts\Activate
 python -m pip install -r requirements.txt
 ```
 
